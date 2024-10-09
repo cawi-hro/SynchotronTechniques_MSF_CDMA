@@ -2,3 +2,6 @@ ipykernel
 #python-dotenv
 matplotlib
 pandas
+scikit-image
+ipympl
+torch #TODO: check if this is necessary
