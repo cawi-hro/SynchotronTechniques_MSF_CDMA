@@ -91,6 +91,9 @@ target/
 
 # Exclude trained models
 /models/
+/notes/
+/lectures/
 
 # exclude solutions
-/solutions/
+*_solution.ipynb
+*_complete.ipynb
