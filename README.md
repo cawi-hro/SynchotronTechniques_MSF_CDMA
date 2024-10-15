@@ -2,7 +2,7 @@
 
 # Synchrotron Techniques for Materials Characterisation - Course 
 
-This repository collects supplementary materials to the master's course "Synchrotron Techniques for Materials Characterisation" (STMC) given by [Berit Zeller-Plumhoff](https://www.hereon.de/institutes/metallic_biomaterials/imaging_and_data_science/team/098931/index.php.de) - University of Rostock - Chair of Data-driven Analysis and Design of Materials, Rostock, Germany. ### TODO:Check ### The contents are provided as [Open Educational Resource](https://de.wikipedia.org/wiki/Open_Educational_Resources), so feel free to fork, share, teach and learn. You can give the project a Star if you like it. ### 
+This repository collects supplementary materials to the master's course "Synchrotron Techniques for Materials Characterisation" (STMC) given by [Berit Zeller-Plumhoff](https://www.hereon.de/institutes/metallic_biomaterials/imaging_and_data_science/team/098931/index.php.de) - University of Rostock - Chair of Data-driven Analysis and Design of Materials, Rostock, Germany. 
 
 ## Getting Started
 

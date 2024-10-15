@@ -48,7 +48,7 @@ def generate_toc_from_ipynb(file_path):
 
 # Specify the path to your Jupyter Notebook file
 toc = generate_toc_from_ipynb(
-    "c:\\Users\\carst\\Unibox Rostock\\repositories\\DADM_lecture_STMC\\exercises\\STMC_all.ipynb"
+    "C:\\Users\\carst\\Unibox Rostock\\repositories\\DADM_lecture_STMC\\exercises\\notes\\X-rays.ipynb"
 )
 
 # Copy the TOC to the clipboard

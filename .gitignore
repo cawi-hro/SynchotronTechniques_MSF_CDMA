@@ -93,6 +93,8 @@ target/
 /models/
 /lectures/
 /exercises/notes/
+/exercises/solutions/
+/src/
 
 # exclude solutions
 *_solution.ipynb
