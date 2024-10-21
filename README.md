@@ -1,4 +1,4 @@
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/cawi-hro/DADM_lecture_STMC.git/HEAD)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://binderhub.comlab.uni-rostock.de/bsf/?next=%2Fservices%2Fbinder%2Fv2%2Fgh%2Fcawi-hro%2FSynchotronTechniques_MSF_CDMA.git%2FHEAD%3Flabpath%3Dindex.ipynb)
 
 # Synchrotron Techniques for Materials Characterisation - Course 
 
