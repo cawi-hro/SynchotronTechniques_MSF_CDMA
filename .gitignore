@@ -95,6 +95,7 @@ target/
 /exercises/notes/
 /exercises/solutions/
 /src/
+/laboratory internship/
 
 # exclude solutions
 *_solution.ipynb
