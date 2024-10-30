@@ -93,8 +93,8 @@ target/
 /models/
 /lectures/archive/
 /exercises/notes/
-/exercises/solutions/cawi_solutions/
-/exercises/solutions/inactive/
+/exercises/cawi/
+/exercises/inactive/
 /src/
 /laboratory internship/
 
