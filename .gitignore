@@ -91,12 +91,12 @@ target/
 
 # Exclude trained models
 /models/
-/lectures/
+/lectures/archive/
 /exercises/notes/
-/exercises/solutions/
+/exercises/solutions/cawi_solutions/
+/exercises/solutions/inactive/
 /src/
 /laboratory internship/
 
 # exclude solutions
-*_solution.ipynb
 *_complete.ipynb
