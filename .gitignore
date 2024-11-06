@@ -91,7 +91,7 @@ target/
 
 # Exclude trained models
 /models/
-/lectures/archive/
+/lectures/
 /exercises/notes/
 /exercises/cawi/
 /exercises/inactive/
