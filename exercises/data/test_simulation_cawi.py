@@ -48,13 +48,10 @@ def forward_propagation_holo(
     Returns:
     - holo: The hologram captured at the detector.
     - obj: The complex representation of the object.
-    
+
     Example:
     - holo, obj = forward_propagation_holo(sod=0.05, sdd=20, detector_pixel_size=6500, beam_energy=11, beta=2.3862e-08, delta=2.9720e-06, object_thickness=0.05, add_noise=False, object_shape_type="disk")
       for Mg and 11keV and object thickness of 0.05mm
-    """
-
-
     """
 
     SCREEN_SIZE = (2000, 2000)  # Size of the detector screen (in pixels)
