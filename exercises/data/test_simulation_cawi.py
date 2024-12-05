@@ -21,13 +21,13 @@ from scipy.constants import h, c  # in J/s and m/s
 
 
 def forward_propagation_holo(
-    sod=1,
-    sdd=1,
-    detector_pixel_size=1,
-    beam_energy=1,
-    beta=1,
-    delta=1,
-    object_thickness=1,
+    sod=0.05,
+    sdd=20,
+    detector_pixel_size=6500,
+    beam_energy=11,
+    beta=2.3862e-08,
+    delta=2.9720e-06,
+    object_thickness=0.05,
     add_noise=False,
     object_shape_type="disk",
 ):
@@ -48,6 +48,13 @@ def forward_propagation_holo(
     Returns:
     - holo: The hologram captured at the detector.
     - obj: The complex representation of the object.
+    
+    Example:
+    - holo, obj = forward_propagation_holo(sod=0.05, sdd=20, detector_pixel_size=6500, beam_energy=11, beta=2.3862e-08, delta=2.9720e-06, object_thickness=0.05, add_noise=False, object_shape_type="disk")
+      for Mg and 11keV and object thickness of 0.05mm
+    """
+
+
     """
 
     SCREEN_SIZE = (2000, 2000)  # Size of the detector screen (in pixels)
@@ -80,6 +87,7 @@ def forward_propagation_holo(
     alpha = (
         4 * np.pi * beta / (wavelength)
     )  # Absorption coefficient of the material (in 1/m)
+
     # Calculate transmission
     transmission = np.exp(-alpha * object_thickness / 1e3)
     print("Transmission:", transmission)
