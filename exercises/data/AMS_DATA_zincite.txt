@@ -1,0 +1,32 @@
+      Zincite
+      Aminoff G
+      Zeitschrift fur Kristallographie 56 (1921) 495-505
+      Ueber Lauephotogramme und Struktur von Zinkit.
+      _cod_database_code 1011258
+      _database_code_amcsd 0018119
+
+      CELL PARAMETERS:   3.2200  3.2200  5.2000   90.000   90.000  120.000
+      SPACE GROUP: P6_3mc    
+      X-RAY WAVELENGTH:     1.541838
+      Cell Volume:     46.692
+      Density (g/cm3):      5.789
+      MAX. ABS. INTENSITY / VOLUME**2:      116.7488557    
+      RIR:      6.566
+      RIR based on corundum from Acta Crystallographica A38 (1982) 733-739
+               2-THETA      INTENSITY    D-SPACING   H   K   L   Multiplicity
+                32.10         50.47        2.7886    1   0   0         6
+                34.50         37.91        2.6000    0   0   2         1
+                36.56        100.00        2.4575    1   0   1         6
+                47.83         20.89        1.9017    1   0   2         6
+                57.22         31.02        1.6100    1   1   0         6
+                63.16         29.96        1.4721    1   0   3         6
+                67.13          4.31        1.3943    2   0   0         6
+                68.56         23.92        1.3688    1   1   2         6
+                69.84         12.85        1.3467    2   0   1         6
+                72.74          2.18        1.3000    0   0   4         1
+                77.72          3.87        1.2288    2   0   2         6
+                81.73          2.27        1.1783    1   0   4         6
+================================================================================
+       XPOW Copyright 1993 Bob Downs, Ranjini Swaminathan and Kurt Bartelmehs
+  For reference, see Downs et al. (1993) American Mineralogist 78, 1104-1107.
+
