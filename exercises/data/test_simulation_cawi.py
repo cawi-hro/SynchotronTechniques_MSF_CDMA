@@ -21,12 +21,13 @@ from scipy.constants import h, c  # in J/s and m/s
 
 
 def forward_propagation_holo(
-    sod=0.05,
-    sdd=20,
+    sod=0.2,
+    sdd=1,
     detector_pixel_size=6500,
     beam_energy=11,
     beta=2.3862e-08,
     delta=2.9720e-06,
+    density=1.74,
     object_thickness=0.05,
     add_noise=False,
     object_shape_type="disk",
@@ -40,14 +41,16 @@ def forward_propagation_holo(
     - add_noise: Boolean flag to add noise to the object shape.
     - beam_energy: Energy of the incident beam (in keV).
     - object_thickness: Thickness of the object (in mm).
-    - beta:  coefficient of the material.
+    - beta: Absorptioncoefficient of the material.
     - delta: Diffraction coefficient of the material.
+    - density: Density of the material (in g/cm^3).
     - detector_pixel_size: Size of the detector (in micro m).
     - object_shape_type: Type of object shape to simulate. 'disk' for a circular object, 'rectangle' for a rectangular object, 'triangle' for a triangular object.
 
     Returns:
     - holo: The hologram captured at the detector.
     - obj: The complex representation of the object.
+    - para: Additional parameters of the simulation.
 
     Example:
     - holo, obj = forward_propagation_holo(sod=0.05, sdd=20, detector_pixel_size=6500, beam_energy=11, beta=2.3862e-08, delta=2.9720e-06, object_thickness=0.05, add_noise=False, object_shape_type="disk")
@@ -67,10 +70,6 @@ def forward_propagation_holo(
         wavelength * (sdd - sod) * magnification
     )
 
-    print("Fresnel Number:", Fresnel_number)
-    print("Magnification:", magnification)
-    print("Wavelength:", wavelength)
-
     # Create the illumination function
     illumination = np.ones(SCREEN_SIZE, dtype=np.float32)  # Uniform illumination
     constant_illumination = 1.0
@@ -80,18 +79,21 @@ def forward_propagation_holo(
     phi_0 = 0.0  # Initial phase
     probe = constant_illumination * illumination * np.exp(1j * phi_0 * phase_shift)
 
-    # Define the object to be imaged
-    alpha = (
-        4 * np.pi * beta / (wavelength)
-    )  # Absorption coefficient of the material (in 1/m)
+    # linear attenuation coefficient in 1/m
+    lin_att_coeff = 4 * np.pi * beta / (wavelength)
+    # mass attenuation coefficient in m^2/kg
+    mass_att_coeff = lin_att_coeff / (density * 1e3)
+
+    # calculate attenuation
+    attenuation = 1 - np.exp(-lin_att_coeff * object_thickness / 1e3)
 
     # Calculate transmission
-    transmission = np.exp(-alpha * object_thickness / 1e3)
-    print("Transmission:", transmission)
-
-    absorption_coefficient = -np.log(transmission)  # Absorption coefficient
-    C = delta / beta
-    phase_shift_object = -C * absorption_coefficient  # Phase shift caused by the object
+    transmission = 1 - attenuation
+    # absorption_coefficient = lin_att_coeff
+    absorption_coefficient = -np.log(attenuation)  # Absorption coefficient
+    phase_shift_object = (
+        -delta / beta * absorption_coefficient
+    )  # Phase shift caused by the object
 
     # Create the object shape (disk)
     object_shape = np.zeros(SCREEN_SIZE)
@@ -149,4 +151,19 @@ def forward_propagation_holo(
     # Compute the hologram by taking the absolute value
     holo = torch.abs(psi_det)
 
-    return holo, obj  # Return the hologram and the object representation
+    # output parameters
+    para = (
+        f"Fresnel Number: {Fresnel_number:.4f}\n"
+        f"Magnification: {magnification}\n"
+        f"Wavelength: {wavelength:.2e} m\n"
+        f"Attenuation: {attenuation:.4f}\n"
+        f"Transmission: {transmission:.4f}\n"
+        f"Linear attenuation coefficient: {lin_att_coeff / 1e3:.2f} 1/m\n"
+        f"HVL {np.log(2) / lin_att_coeff * 1e3:.2f} mm\n"
+    )
+
+    return (
+        holo,
+        obj,
+        para,
+    )  # Return the hologram, the object representation and additional parameters
