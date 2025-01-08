@@ -5,3 +5,7 @@ pandas
 scikit-image
 ipympl
 torch
+pyFAI
+PyQt5
+jupyterlab
+notebook

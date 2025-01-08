@@ -114,6 +114,17 @@ def forward_propagation_holo(
         )
         object_shape[rr, cc] = 1  # Triangle object
 
+    # create a second object
+    object_shape_2 = np.zeros(SCREEN_SIZE)
+    triangle_vertices = np.array([[1000, 950], [900, 1200], [1100, 1200]])
+    rr, cc = polygon(
+        triangle_vertices[:, 0], triangle_vertices[:, 1], object_shape.shape
+    )
+    object_shape_2[rr, cc] = 1  # Triangle object
+
+    # Combine the two objects
+    object_shape += object_shape_2
+
     # Add noise to the object shape if needed (commented out for now)
     if add_noise:
         noise = np.random.normal(0, 1, size=object_shape.shape)
