@@ -1,5 +1,4 @@
 ipykernel
-#python-dotenv
 matplotlib
 pandas
 scikit-image
