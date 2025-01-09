@@ -1,7 +1,1 @@
-<<<<<<< HEAD
 ../apt.txt
-=======
-ffmpeg
-libsm6
-libxext6
->>>>>>> f07190946ef00d09da21d67df8a035e2a49582cb
