@@ -8,3 +8,4 @@ pyFAI
 PyQt5
 jupyterlab
 notebook
+plotly
